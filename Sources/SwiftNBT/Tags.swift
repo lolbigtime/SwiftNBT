@@ -295,6 +295,10 @@ extension ListTag: RandomAccessCollection, RangeReplaceableCollection {
             tags[bounds] = newValue
         }
     }
+    
+    public mutating func replaceSubrange<C: Collection>(_ subrange: Range<Int>, with newElements: C) where C.Element == NBTTag {
+        tags.replaceSubrange(subrange, with: newElements)
+    }
 }
 
 extension CompoundTag {
